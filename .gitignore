@@ -4,3 +4,7 @@ out/
 next-env.d.ts
 *.tsbuildinfo
 AGENTS.md
+/photos/
+/music/
+/video/
+/public/music/the-shimmer-of-sindhu.mp3
