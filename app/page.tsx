@@ -33,7 +33,7 @@ function StaticCanvas({ active }: { active: boolean }) {
     const interval = window.setInterval(frame, 67);
     return () => window.clearInterval(interval);
   }, [active]);
-  return active ? <canvas ref={canvasRef} className="static-canvas" aria-hidden="true" /> : null;
+  return <canvas ref={canvasRef} className="static-canvas" aria-hidden="true" />;
 }
 
 function Barcode({ className = "" }: { className?: string }) {
@@ -178,21 +178,22 @@ function ScratchDates() {
     context.strokeStyle = "rgba(135, 20, 30, .18)";
     context.lineWidth = 1;
     context.strokeRect(13, 13, bounds.width - 26, bounds.height - 26);
-    const stubX = bounds.width * .84;
+    const compactStub = bounds.width < 600;
+    const stubX = bounds.width * (compactStub ? .77 : .84);
     context.save();
     context.fillStyle = "rgba(117, 12, 19, .62)";
     context.textAlign = "center";
-    context.font = "600 8px Arial, sans-serif";
-    context.letterSpacing = "1.5px";
-    context.fillText("LUCKY TICKET", (stubX + bounds.width) / 2, bounds.height * .37);
+    context.font = compactStub ? "600 7px Arial, sans-serif" : "600 8px Arial, sans-serif";
+    context.letterSpacing = compactStub ? ".5px" : "1.5px";
+    context.fillText(compactStub ? "LUCKY" : "LUCKY TICKET", (stubX + bounds.width) / 2, bounds.height * .37);
     context.fillStyle = "#8b1720";
-    context.font = "italic 18px Georgia, serif";
+    context.font = compactStub ? "italic 15px Georgia, serif" : "italic 18px Georgia, serif";
     context.letterSpacing = "0px";
     context.fillText("P & D", (stubX + bounds.width) / 2, bounds.height * .49);
     context.fillStyle = "rgba(117, 12, 19, .55)";
-    context.font = "600 7px Arial, sans-serif";
-    context.letterSpacing = "1px";
-    context.fillText("NO. 001", (stubX + bounds.width) / 2, bounds.height * .59);
+    context.font = compactStub ? "600 6px Arial, sans-serif" : "600 7px Arial, sans-serif";
+    context.letterSpacing = compactStub ? ".5px" : "1px";
+    context.fillText(compactStub ? "NO. 01" : "NO. 001", (stubX + bounds.width) / 2, bounds.height * .59);
     context.restore();
     context.fillStyle = "#8b1720";
     context.font = "600 12px Arial, sans-serif";
@@ -213,7 +214,7 @@ function ScratchDates() {
     const x = event.clientX - bounds.left;
     const y = event.clientY - bounds.top;
     context.globalCompositeOperation = "destination-out";
-    context.lineWidth = 60;
+    context.lineWidth = 100;
     context.lineCap = "round";
     context.lineJoin = "round";
     context.beginPath();
@@ -233,7 +234,7 @@ function ScratchDates() {
     let clear = 0;
     let total = 0;
     for (let i = 3; i < pixels.length; i += 32 * 4) { total++; if (pixels[i] < 30) clear++; }
-    if (total && clear / total > .22) {
+    if (total && clear / total > .05) {
       setRevealed(true);
       setBurst((value) => value + 1);
     }
@@ -292,7 +293,7 @@ export default function Invitation() {
 
   useEffect(() => {
     setTvPhotoReady(false);
-    const revealTimer = window.setTimeout(() => setTvPhotoReady(true), 2100);
+    const revealTimer = window.setTimeout(() => setTvPhotoReady(true), 500);
     const glitchTimer = window.setInterval(() => {
       setGlitch(true);
       window.setTimeout(() => setGlitch(false), 210);
@@ -411,7 +412,7 @@ export default function Invitation() {
             <div className="tv-side-knob" role="button" tabIndex={0} aria-label="Open the invitation" onClick={openInvitation} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openInvitation(); } }} />
           </div>
           <button className="click-more" type="button" onClick={openInvitation}>CLICK FOR MORE DETAILS</button>
-          <span className="hero-edition">A WEDDING WEEKEND · JASOL, RAJASTHAN</span>
+          <span className="hero-edition">A WEDDING WEEKEND</span>
         </section>
 
         <section className="family-intro-section section-dark" id="introduction">
