@@ -97,3 +97,10 @@ body{background:#51070b}
 .location-invitation-line small{color:#90684a;font:italic clamp(1rem,2vw,1.38rem)/1.2 var(--serif);letter-spacing:.01em}
 @media(max-width:760px){.postcard-heading .location-invitation-line{font-size:clamp(1.38rem,6vw,2rem)}.location-invitation-line small{font-size:clamp(.92rem,4vw,1.12rem)}}
 @media(max-width:760px){.gallery-rail{padding-inline:8vw;margin-inline:-15px;scroll-snap-type:x mandatory;scroll-padding-inline:8vw}.moment-card{flex:0 0 min(84vw,380px);max-width:min(84vw,380px);scroll-snap-align:center}.moment-image{height:clamp(230px,65vw,300px)}.date-scratch-card:after{background-position:77% 6px}.date-scratch-revealed:after{background-position:77% 6px}.date-pair{padding-right:23%}}
+.gallery-rail{scroll-snap-type:x mandatory}
+@media(max-width:760px){.gallery-rail{padding-inline:22px;margin-inline:-15px;scroll-padding-inline:22px}.moment-card{flex:0 0 calc(100vw - 44px);width:calc(100vw - 44px);max-width:420px;scroll-snap-align:center}.moment-image{height:clamp(300px,108vw,430px)}.moment-image img{object-fit:contain;background:#e4d8c5}.moment-caption{font-size:17px}}
+.date-scratch-card{clip-path:none;border:1px solid #c9a76f;border-radius:18px;box-shadow:0 20px 45px #2c02064f,inset 0 0 0 5px #fff9ed;}
+.date-scratch-card:after{inset:13px;border:1px solid #c9a76f66;background:none;border-radius:10px;}
+.date-scratch-revealed:after{border-color:#c9a76f66;background:none;}
+.date-pair{padding:24px 28px;}
+@media(max-width:760px){.date-scratch-card{clip-path:none;border-radius:16px}.date-scratch-card:after{inset:10px;background:none}.date-pair{padding:20px 12px}}

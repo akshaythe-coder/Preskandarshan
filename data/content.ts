@@ -76,7 +76,6 @@ export const content = {
     { src: "/moments/rose-hued-day.webp", caption: "A moment in rose and gold", tone: "rose" },
     { src: "/moments/flowers-and-us.webp", caption: "Flowers for a day to remember", tone: "sage" },
     { src: "/moments/palm-tree-day.webp", caption: "A sunny day beneath the palms", tone: "sage" },
-    { src: "/moments/evening-out.webp", caption: "A night to remember", tone: "dusk" },
     { src: "/moments/blue-sky-us.webp", caption: "A little sunshine, side by side", tone: "blue" },
     { src: "/moments/dressed-for-the-night.webp", caption: "A special night, dressed for the moment", tone: "rose" },
     { src: "/moments/a-quiet-portrait.webp", caption: "A quiet portrait of us", tone: "blue" },
