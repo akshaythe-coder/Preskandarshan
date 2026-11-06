@@ -439,9 +439,9 @@ export default function Invitation() {
 
         <section className="moments-section section-dark" id="moments">
           <div className="section-heading"><p className="small-caps">LITTLE PIECES OF FOREVER</p><h2 className="script">Moments we keep</h2><p>Favorite memories, kept close.</p></div>
-          <div className="gallery-rail" ref={galleryRef} onTouchStart={(event) => { touchX.current = event.touches[0].clientX; }} onTouchEnd={(event) => { if (touchX.current === null) return; const delta = event.changedTouches[0].clientX - touchX.current; if (Math.abs(delta) > 40) galleryRef.current?.scrollBy({ left: delta < 0 ? 260 : -260, behavior: "smooth" }); touchX.current = null; }}>
+          <div className="gallery-rail" ref={galleryRef}>
             {content.moments.map((photo, index) => <motion.button className={`moment-card tone-${photo.tone}`} type="button" key={photo.src} onClick={() => { setPhotoIndex(index); setLightboxOpen(true); }} whileHover={{ y: -8, rotate: 0 }} whileTap={{ scale: 0.98 }} aria-label={`View photo: ${photo.caption}`}>
-              <span className="moment-image"><Image src={photo.src} alt={photo.caption} width={900} height={1200} sizes="(max-width: 700px) 76vw, 340px" loading="lazy" /></span><span className="moment-caption">{photo.caption}</span>
+              <span className="moment-image"><Image src={photo.src} alt={photo.caption} width={900} height={1200} sizes="(max-width: 700px) 92vw, 340px" loading="lazy" /></span><span className="moment-caption">{photo.caption}</span>
             </motion.button>)}
           </div>
           <p className="small-caps swipe-hint">SWIPE TO WANDER</p>
