@@ -14,6 +14,19 @@ export const content = {
     alt: "Preksha and Darshan together",
     screen: { top: "5%", left: "5%", width: "90%", height: "90%" },
   },
+  familyIntroduction: {
+    title: "Introducing the families",
+    bride: {
+      name: "Preksha",
+      family: ["GD/O Shrimati Mohinidevi Late Ratanchandji Bokadiya", "D/O Meenadevi Bharatkumari Bokadiya"],
+      home: "Siwana · Pune",
+    },
+    groom: {
+      name: "Darshan",
+      family: ["GS/O Late Shushiladevi Champalalji Solanki", "S/O Krishnadevi Manojkumar Solanki"],
+      home: "Keshawana · Mumbai",
+    },
+  },
   story: {
     title: "A Tale of Two Chances",
     subtitle: "The story of Preksha & Darshan",

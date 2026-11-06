@@ -120,25 +120,6 @@ function ScrapItem({ name, active, children, onOpen, className = "" }: { name: C
   );
 }
 
-function StoryTelevision({ chapterIndex }: { chapterIndex: number }) {
-  const [burst, setBurst] = useState(false);
-  useEffect(() => {
-    setBurst(true);
-    const timer = window.setTimeout(() => setBurst(false), 240);
-    return () => window.clearTimeout(timer);
-  }, [chapterIndex]);
-  return (
-    <div className="story-tv">
-      <div className={`story-tv-screen ${burst ? "story-tv-burst" : ""}`}>
-        <Image src={content.story.photo} alt={content.story.photoAlt} width={1200} height={1600} sizes="(max-width: 760px) 76vw, 420px" style={{ filter: "contrast(1.04) saturate(1.06)" }} />
-        <StaticCanvas active={burst} />
-        <span className="story-scanlines" />
-      </div>
-      <div className="story-tv-cabinet"><span className="story-tv-knob" /><span className="story-tv-speaker" /></div>
-    </div>
-  );
-}
-
 function CollageModal({ name, onClose }: { name: CollageName; onClose: () => void }) {
   const [frame, setFrame] = useState(0);
   const touchX = useRef<number | null>(null);
@@ -175,6 +156,7 @@ function CalendarLinks() {
 function ScratchDates() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawing = useRef(false);
+  const lastPoint = useRef<{ x: number; y: number } | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [burst, setBurst] = useState(0);
 
@@ -196,6 +178,22 @@ function ScratchDates() {
     context.strokeStyle = "rgba(135, 20, 30, .18)";
     context.lineWidth = 1;
     context.strokeRect(13, 13, bounds.width - 26, bounds.height - 26);
+    const stubX = bounds.width * .84;
+    context.save();
+    context.fillStyle = "rgba(117, 12, 19, .62)";
+    context.textAlign = "center";
+    context.font = "600 8px Arial, sans-serif";
+    context.letterSpacing = "1.5px";
+    context.fillText("LUCKY TICKET", (stubX + bounds.width) / 2, bounds.height * .37);
+    context.fillStyle = "#8b1720";
+    context.font = "italic 18px Georgia, serif";
+    context.letterSpacing = "0px";
+    context.fillText("P & D", (stubX + bounds.width) / 2, bounds.height * .49);
+    context.fillStyle = "rgba(117, 12, 19, .55)";
+    context.font = "600 7px Arial, sans-serif";
+    context.letterSpacing = "1px";
+    context.fillText("NO. 001", (stubX + bounds.width) / 2, bounds.height * .59);
+    context.restore();
     context.fillStyle = "#8b1720";
     context.font = "600 12px Arial, sans-serif";
     context.textAlign = "center";
@@ -215,20 +213,29 @@ function ScratchDates() {
     const x = event.clientX - bounds.left;
     const y = event.clientY - bounds.top;
     context.globalCompositeOperation = "destination-out";
+    context.lineWidth = 60;
+    context.lineCap = "round";
+    context.lineJoin = "round";
     context.beginPath();
-    context.arc(x, y, 23, 0, Math.PI * 2);
-    context.fill();
-    if (Math.random() < .28) {
-      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-      const stride = 32;
-      let clear = 0;
-      let total = 0;
-      for (let i = 3; i < pixels.length; i += stride * 4) { total++; if (pixels[i] < 30) clear++; }
-      if (clear / total > .27) {
-        drawing.current = false;
-        setRevealed(true);
-        setBurst((value) => value + 1);
-      }
+    context.moveTo(lastPoint.current?.x ?? x, lastPoint.current?.y ?? y);
+    context.lineTo(x, y);
+    context.stroke();
+    lastPoint.current = { x, y };
+  };
+
+  const finishScratch = () => {
+    drawing.current = false;
+    lastPoint.current = null;
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d", { willReadFrequently: true });
+    if (!canvas || !context || revealed) return;
+    const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    let clear = 0;
+    let total = 0;
+    for (let i = 3; i < pixels.length; i += 32 * 4) { total++; if (pixels[i] < 30) clear++; }
+    if (total && clear / total > .22) {
+      setRevealed(true);
+      setBurst((value) => value + 1);
     }
   };
 
@@ -243,7 +250,7 @@ function ScratchDates() {
       <div className="date-pair">
         <div><span>Saturday &amp; Sunday</span><strong>30<sup>th</sup> &amp; 31<sup>st</sup></strong><small>JANUARY 2027</small><p>Two days, one forever.</p><p>We can’t wait to celebrate with you.</p></div>
       </div>
-      {!revealed && <canvas ref={canvasRef} className="date-scratch-cover" aria-label="Scratch to reveal the wedding dates" onPointerDown={(event) => { drawing.current = true; event.currentTarget.setPointerCapture(event.pointerId); scratch(event); }} onPointerMove={scratch} onPointerUp={() => { drawing.current = false; }} onPointerCancel={() => { drawing.current = false; }} />}
+      {!revealed && <canvas ref={canvasRef} className="date-scratch-cover" aria-label="Scratch to reveal the wedding dates" onPointerDown={(event) => { drawing.current = true; lastPoint.current = null; event.currentTarget.setPointerCapture(event.pointerId); scratch(event); }} onPointerMove={scratch} onPointerUp={finishScratch} onPointerCancel={finishScratch} />}
     </div>
     {burst > 0 && <div className="date-confetti" key={burst} aria-hidden="true">{confetti}</div>}
     {revealed && <CalendarLinks />}
@@ -259,7 +266,6 @@ export default function Invitation() {
   const [musicOn, setMusicOn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<CollageName | null>(null);
-  const [chapterIndex, setChapterIndex] = useState(0);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [replay, setReplay] = useState(0);
@@ -344,7 +350,7 @@ export default function Invitation() {
     setOpened(true);
     setTransitioning(true);
     startMusic();
-    window.setTimeout(() => document.querySelector("#story")?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }), 460);
+    window.setTimeout(() => document.querySelector("#introduction")?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }), 460);
     window.setTimeout(() => setTransitioning(false), 1500);
   };
   const toggleMusic = () => {
@@ -355,13 +361,11 @@ export default function Invitation() {
     else { audio.play().then(() => setMusicOn(true)).catch(() => undefined); }
   };
   const diff = Math.max(0, eventTarget - time);
-  const monthUnit = 30.436875 * 86400000;
-  const months = Math.floor(diff / monthUnit);
-  const days = Math.floor((diff - months * monthUnit) / 86400000);
+  const days = Math.floor(diff / 86400000);
   const hours = Math.floor(diff / 3600000) % 24;
   const minutes = Math.floor(diff / 60000) % 60;
   const seconds = Math.floor(diff / 1000) % 60;
-  const countdown = [[months, "MONTHS"], [days, "DAYS"], [hours, "HOURS"], [minutes, "MINUTES"], [seconds, "SECONDS"]] as const;
+  const countdown = [[days, "DAYS"], [hours, "HOURS"], [minutes, "MINUTES"], [seconds, "SECONDS"]] as const;
 
   return (
     <MotionConfig reducedMotion="user">
@@ -371,7 +375,7 @@ export default function Invitation() {
         <a className="monogram" href="#tv" aria-label="Preksha and Darshan, return to the beginning"><InitialsMark /></a>
         <button className="menu-toggle" type="button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}><i /><i /><i /></button>
         <nav className={menuOpen ? "nav-open" : ""} aria-label="Main navigation" onClick={() => setMenuOpen(false)}>
-          <a href="#story">Our story</a><a href="#moments">Moments</a><a href="#days">The days</a><a href="#location">Location</a>
+          <a href="#introduction">Families</a><a href="#moments">Moments</a><a href="#days">The days</a><a href="#location">Location</a>
         </nav>
       </header>
 
@@ -396,7 +400,7 @@ export default function Invitation() {
                 <div className={`tv-screen ${tvPhotoReady ? "photo-ready" : ""}`} style={{ top: content.tv.screen.top, left: content.tv.screen.left, width: content.tv.screen.width, height: content.tv.screen.height }}>
                   <Image src={content.tv.image} alt={content.tv.alt} fill sizes="(max-width: 600px) 65vw, 440px" priority className="tv-photo" />
                   <StaticCanvas active={!tvPhotoReady} />
-                  <span className="tv-save-word">SAVE</span>
+                  <span className="tv-save-label">Save the date</span>
                   <span className="tv-scanlines" />
                   <span className="tv-glass" />
                 </div>
@@ -410,21 +414,40 @@ export default function Invitation() {
           <span className="hero-edition">A WEDDING WEEKEND · JASOL, RAJASTHAN</span>
         </section>
 
-        <section className="story-section section-dark" id="story">
-          <div className="section-heading"><p className="small-caps">OUR STORY</p><h2 className="script">{content.story.title}</h2><p>{content.story.subtitle}</p>{content.story.paragraphs.map((paragraph) => <p className="story-intro" key={paragraph}>{paragraph}</p>)}</div>
-          <div className="story-layout">
-            <StoryTelevision chapterIndex={chapterIndex} />
-            <div className="story-chapters">
-              {content.story.chapters.map((chapter, index) => <article className={`story-chapter ${chapterIndex === index ? "chapter-active" : ""}`} key={chapter.title}>
-                <button type="button" onClick={() => setChapterIndex(index)} aria-expanded={chapterIndex === index} aria-controls={`chapter-${index + 1}`}>
-                  <span className="chapter-number">CH. {String(index + 1).padStart(2, "0")}</span><span className="chapter-title">{chapter.title}</span><span className="chapter-year">{chapter.year || "OUR STORY"}</span>
-                </button>
-                <AnimatePresence initial={false}>{chapterIndex === index && <motion.div className="chapter-copy" id={`chapter-${index + 1}`} initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.32 }}><div>{chapter.text.map((line) => <p key={line}>{line}</p>)}</div></motion.div>}</AnimatePresence>
-              </article>)}
-            </div>
+        <section className="family-intro-section section-dark" id="introduction">
+          <div className="section-heading">
+            <p className="small-caps">TWO FAMILIES · ONE PROMISE</p>
+            <h2 className="script">{content.familyIntroduction.title}</h2>
+            <p>With love, we bring our families together.</p>
           </div>
-          <p className="story-closing script">{content.story.closing}</p>
-          <div className="guna-meter" aria-label="Guna Milan compatibility meter"><p className="small-caps">GUNA MILAN</p><div className="guna-track" aria-hidden="true">{Array.from({ length: 36 }, (_, i) => <span key={i} />)}</div><small>36 qualities, one beautiful beginning</small></div>
+          <figure className="family-intro-photo">
+            <Image src="/photos/family-introduction.jpeg" alt="Preksha and Darshan together beneath the palace arch" width={960} height={1280} sizes="(max-width: 760px) 82vw, 460px" loading="lazy" />
+          </figure>
+          <div className="family-ticket" aria-label="Introducing the families of Preksha and Darshan">
+            {[content.familyIntroduction.bride, content.familyIntroduction.groom].map((person, index) => (
+              <article className={`family-ticket-panel ${index === 0 ? "family-bride" : "family-groom"}`} key={person.name}>
+                <div className="family-ticket-copy">
+                  <p className="small-caps">THE {index === 0 ? "BRIDE" : "GROOM"}</p>
+                  <h3>{person.name}</h3>
+                  <span className="family-rule" aria-hidden="true" />
+                  {person.family.map((line) => <p className="family-line" key={line}>{line}</p>)}
+                  <p className="family-home">{person.home}</p>
+                </div>
+              </article>
+            ))}
+            <div className="family-ticket-seal"><InitialsMark /></div>
+          </div>
+          <p className="family-intro-closing script">A celebration made sweeter by the people who raised us.</p>
+        </section>
+
+        <section className="moments-section section-dark" id="moments">
+          <div className="section-heading"><p className="small-caps">LITTLE PIECES OF FOREVER</p><h2 className="script">Moments we keep</h2><p>Favorite memories, kept close.</p></div>
+          <div className="gallery-rail" ref={galleryRef} onTouchStart={(event) => { touchX.current = event.touches[0].clientX; }} onTouchEnd={(event) => { if (touchX.current === null) return; const delta = event.changedTouches[0].clientX - touchX.current; if (Math.abs(delta) > 40) galleryRef.current?.scrollBy({ left: delta < 0 ? 260 : -260, behavior: "smooth" }); touchX.current = null; }}>
+            {content.moments.map((photo, index) => <motion.button className={`moment-card tone-${photo.tone}`} type="button" key={photo.src} onClick={() => { setPhotoIndex(index); setLightboxOpen(true); }} whileHover={{ y: -8, rotate: 0 }} whileTap={{ scale: 0.98 }} aria-label={`View photo: ${photo.caption}`}>
+              <span className="moment-image"><Image src={photo.src} alt={photo.caption} width={900} height={1200} sizes="(max-width: 700px) 76vw, 340px" loading="lazy" /></span><span className="moment-caption">{photo.caption}</span>
+            </motion.button>)}
+          </div>
+          <p className="small-caps swipe-hint">SWIPE TO WANDER</p>
         </section>
 
         <section className="days-section section-dark" id="days">
@@ -432,10 +455,19 @@ export default function Invitation() {
           <ScratchDates />
         </section>
 
+        <section className="countdown-section section-dark" id="countdown">
+          <p className="small-caps">THE DAYS ARE DRAWING NEAR</p>
+          <h2 className="script">Until we say “I do”</h2>
+          <div className="heart-countdown">
+            <HeartYarn />
+            <div className="countdown-inner"><p className="small-caps">COUNTING DOWN</p><div className="countdown-numbers">{countdown.map(([value, label]) => <div className="count-unit" key={label}><motion.strong key={value} initial={{ y: -8, opacity: 0.6 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.22 }}>{pad(value)}</motion.strong><span>{label}</span></div>)}</div></div>
+          </div>
+        </section>
+
         <section className="location-section section-dark" id="location">
           <div className="section-heading"><p className="small-caps">THE PLACE</p><h2 className="script">Meet us here</h2></div>
           <article className="location-postcard">
-            <div className="postcard-heading"><p className="script">Come find us</p><div className="location-stamp"><InitialsMark /></div></div>
+            <div className="postcard-heading"><p className="script location-invitation-line"><span>Join us in Rajasthan</span><small>where two souls unite</small></p><div className="location-stamp"><InitialsMark /></div></div>
             <span className="location-postmark">WEDDING WEEKEND<br />30 · 31 JAN 2027</span>
             <h3>{content.venue.name}</h3><p>{content.venue.city}</p>
             <a className="button button-red" href={content.venue.mapLink} target="_blank" rel="noreferrer">GET DIRECTIONS</a>
@@ -455,26 +487,6 @@ export default function Invitation() {
           </article>
         </section>
 
-        <section className="countdown-section section-dark" id="countdown">
-          <p className="small-caps">THE DAYS ARE DRAWING NEAR</p>
-          <h2 className="script">Until we say “I do”</h2>
-          <div className="heart-countdown">
-            <HeartYarn />
-            <div className="countdown-inner"><p className="small-caps">COUNTING DOWN</p><div className="countdown-numbers">{countdown.map(([value, label]) => <div className="count-unit" key={label}><motion.strong key={value} initial={{ y: -8, opacity: 0.6 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.22 }}>{pad(value)}</motion.strong><span>{label}</span></div>)}</div></div>
-          </div>
-        </section>
-
-        <section className="moments-section section-dark" id="moments">
-          <div className="section-heading"><p className="small-caps">LITTLE PIECES OF FOREVER</p><h2 className="script">Moments we keep</h2><p>Favorite memories, kept close.</p></div>
-          <div className="gallery-rail" ref={galleryRef} onTouchStart={(event) => { touchX.current = event.touches[0].clientX; }} onTouchEnd={(event) => { if (touchX.current === null) return; const delta = event.changedTouches[0].clientX - touchX.current; if (Math.abs(delta) > 40) galleryRef.current?.scrollBy({ left: delta < 0 ? 260 : -260, behavior: "smooth" }); touchX.current = null; }}>
-            {content.moments.map((photo, index) => <motion.button className={`moment-card tone-${photo.tone}`} type="button" key={photo.src} onClick={() => { setPhotoIndex(index); setLightboxOpen(true); }} whileHover={{ y: -8, rotate: 0 }} whileTap={{ scale: 0.98 }} aria-label={`View photo: ${photo.caption}`}>
-              <span className="moment-image"><Image src={photo.src} alt={photo.caption} width={900} height={1200} sizes="(max-width: 700px) 76vw, 340px" loading="lazy" /></span><span className="moment-caption">{photo.caption}</span>
-            </motion.button>)}
-          </div>
-          <p className="small-caps swipe-hint">SWIPE TO WANDER</p>
-        </section>
-
-        <footer className="site-footer section-dark"><p className="script">With love,</p><p className="footer-names">{content.couple.first} &amp; {content.couple.second}</p><small>30 &amp; 31 JANUARY 2027 · JASOL, RAJASTHAN</small></footer>
       </main>
 
       <AnimatePresence>{activeItem && <CollageModal name={activeItem} onClose={() => setActiveItem(null)} />}</AnimatePresence>
