@@ -107,3 +107,10 @@ body{background:#51070b}
 .date-scratch-revealed:after{border-color:#c9a76f66;background:none;}
 .date-pair{padding:24px 28px;}
 @media(max-width:760px){.date-scratch-card{clip-path:none;border-radius:16px}.date-scratch-card:after{inset:10px;background:none}.date-pair{padding:20px 12px}}
+
+/* One continuous backdrop for every slide, without gradient restarts or section seams. */
+.invitation{background:#65080d}
+.invitation:after{position:fixed;inset:0;z-index:-1;content:"";pointer-events:none;background-color:#65080d;background-image:repeating-linear-gradient(90deg,#39040714 0 3px,transparent 3px 16px),linear-gradient(145deg,#861117,#65080d 62%,#4b0508)}
+.invitation main>section,.invitation .site-footer{background:transparent;box-shadow:none}
+.invitation .family-intro-section:before{background:none}
+.invitation .hero-grain{display:none}
