@@ -34,7 +34,7 @@ export const contentEn = {
         {
             "heading": "Cordially WELCOMING YOU",
             "names": [],
-            "paragraph": "Babulalji, Manikchandji, Dinesh, Bharat, Nilesh, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Akshay, Rishabh, Shaurya & the entire Bokadia Family",
+            "paragraph": "Babulalji, Manikchandji, Dinesh, Bharat, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Akshay, Rishabh, Shaurya & the entire Bokadia Family",
             "memorial": false
         },
         {
@@ -63,7 +63,6 @@ export const contentEn = {
                 "Sau. Premlata Manikchandji Bokadia",
                 "Sau. Uma Dinesh Bokadia",
                 "Sau. Meena Bharat Bokadia",
-                "Sau. Leena Nilesh Bokadia",
                 "Sau. Charu Kushal Bokadia",
                 "Sau. Aarti Hitesh Bokadia",
                 "Sau. Avani Kalpesh Bokadia",
