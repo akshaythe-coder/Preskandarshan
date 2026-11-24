@@ -4,3 +4,5 @@
 @media(prefers-reduced-motion:reduce){.family-blessings *{animation:none!important;transition:none!important}.family-blessings .blessings-petals,.blessings-heart-burst{display:none}.blessings-quote-card{transform:none}}
 
 .blessings-language{position:relative;z-index:2;display:flex;justify-content:center;margin:0 auto 32px}.family-blessings[lang=hi]{word-break:normal;hyphens:none}.family-blessings[lang=hi] :is(h2,p,li,q,span){letter-spacing:normal;text-transform:none}
+
+.blessings-keep-together{white-space:nowrap}

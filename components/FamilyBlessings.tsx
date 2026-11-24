@@ -16,7 +16,7 @@ export function OrnamentDivider() {
 }
 export function NameList({ names }: { names: readonly string[] }) {
   const reduced = useReducedMotion();
-  return <motion.ul className="blessings-names" initial="hidden" whileInView="visible" viewport={{ once: true, amount: .12 }} variants={{ hidden: {}, visible: { transition: { staggerChildren: reduced ? 0 : .06 } } }}>{names.map((name, index) => <motion.li key={index} variants={{ hidden: { opacity: 0, y: reduced ? 0 : 8 }, visible: { opacity: 1, y: 0, transition: { duration: reduced ? .15 : .45 } } }}>{name}</motion.li>)}</motion.ul>;
+  return <motion.ul className="blessings-names" initial="hidden" whileInView="visible" viewport={{ once: true, amount: .12 }} variants={{ hidden: {}, visible: { transition: { staggerChildren: reduced ? 0 : .06 } } }}>{names.map((name, index) => <motion.li key={index} variants={{ hidden: { opacity: 0, y: reduced ? 0 : 8 }, visible: { opacity: 1, y: 0, transition: { duration: reduced ? .15 : .45 } } }}>{name.split(/(Late\s+Ratanchandji)/).map((part, partIndex) => /^Late\s+Ratanchandji$/.test(part) ? <span key={partIndex} className="blessings-keep-together">{part}</span> : part)}</motion.li>)}</motion.ul>;
 }
 function Diya() {
   return <svg className="blessings-diya" viewBox="0 0 88 72" fill="none" aria-hidden="true"><path className="blessings-flame" d="M44 8c-1 13-10 14-10 25a10 10 0 0 0 20 0c0-10-8-15-10-25Z" fill="currentColor"/><path d="M44 24c-1 6-5 8-5 13a5 5 0 0 0 10 0c0-5-4-8-5-13Z" fill="#fff2cf"/><path d="M15 43h58c-5 15-14 21-29 21S20 58 15 43Z" stroke="currentColor" strokeWidth="1.2"/><path d="M22 47c12 8 32 8 44 0M28 68h32M44 43v-5" stroke="currentColor" strokeWidth=".8"/></svg>;
