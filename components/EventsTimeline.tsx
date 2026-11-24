@@ -46,7 +46,7 @@ export function EventTicket({ entry, sound }: { entry: Entry; sound: () => void 
           <span className="days-barcode" aria-hidden="true" />
         </div>
         <div className="days-ticket-back" id={`ticket-details-${entry.number}`} aria-hidden={!flipped} inert={!flipped}>
-          <button type="button" className="days-ticket-toggle days-ticket-back-main" aria-expanded={flipped} aria-controls={`ticket-details-${entry.number}`} aria-label={flipLabel} onClick={flip}><strong>{event.title}</strong>{event.description && <span>{event.description}</span>}{event.venueNote && <span>{event.venueNote}</span>}</button>
+          <button type="button" className="days-ticket-toggle days-ticket-back-main" aria-expanded={flipped} aria-controls={`ticket-details-${entry.number}`} aria-label={flipLabel} onClick={flip}><strong>{event.title}</strong><small>{t("Tap to return")}</small>{event.description && <span>{event.description}</span>}{event.venueNote && <span>{event.venueNote}</span>}</button>
           <DressCode event={event} large />
         </div>
       </div>

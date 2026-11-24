@@ -373,6 +373,7 @@ export const messagesEn = {
   "Add to calendar": "Add to calendar",
   "Add all events to calendar": "Add all events to calendar",
   "Carnival on Google Calendar": "Carnival on Google Calendar",
+  "Tap to return": "Tap to return",
   "Tap for details": "Tap for details",
   "Show details": "Show details",
   "Hide details": "Hide details",

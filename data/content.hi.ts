@@ -378,6 +378,7 @@ export const messagesHi: Messages = {
   "Add to calendar": "कैलेंडर में जोड़ें",
   "Add all events to calendar": "सभी कार्यक्रम कैलेंडर में जोड़ें",
   "Carnival on Google Calendar": "गूगल कैलेंडर में कार्निवल जोड़ें",
+  "Tap to return": "वापस जाने के लिए दबाएँ",
   "Tap for details": "जानने के लिए दबाएँ",
   "Show details": "विवरण देखें",
   "Hide details": "विवरण छिपाएँ",
