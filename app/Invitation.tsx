@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import FallingHearts from "@/components/FallingHearts";
 import FamilyBlessings from "@/components/FamilyBlessings";
 import EventsTimeline from "@/components/EventsTimeline";
 import { AnimatePresence, MotionConfig, motion, useDragControls } from "framer-motion";
@@ -380,6 +381,7 @@ export default function Invitation() {
   return (
     <MotionConfig reducedMotion="user">
     <div className="invitation">
+      <FallingHearts />
       <audio ref={audioRef} src={content.music} preload="none" loop />
       <header className="site-header">
         <a className="monogram" href="#tv" aria-label={t("Preksha and Darshan, return to the beginning")}><InitialsMark /></a>
