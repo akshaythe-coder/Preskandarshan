@@ -81,7 +81,17 @@ export default function EventsTimeline({ muted, now }: { muted: boolean; now: nu
     audio.current?.pause(); const clip = new Audio(src); audio.current = clip; clip.volume = .2;
     clip.play().catch(() => undefined);
   };
-  const select = (next: number) => { if (next === day) return; setDay(next); setNearest(-1); play(content.timeline.tabSound); };
+  const scrollFrame = useRef<number | null>(null);
+  useEffect(() => () => { if (scrollFrame.current !== null) cancelAnimationFrame(scrollFrame.current); }, []);
+  const select = (next: number) => {
+    if (next !== day) { setDay(next); setNearest(-1); play(content.timeline.tabSound); }
+    if (scrollFrame.current !== null) cancelAnimationFrame(scrollFrame.current);
+    // Wait for the selected day's tickets to render before returning to the section top.
+    scrollFrame.current = requestAnimationFrame(() => {
+      scrollFrame.current = null;
+      document.getElementById("the-days")?.scrollIntoView({ behavior: reduced ? "instant" : "smooth", block: "start" });
+    });
+  };
   useEffect(() => {
     let frame = 0;
     const update = () => { frame = 0; const nodes = list.current?.querySelectorAll<HTMLElement>("[data-timeline-node]"); if (!nodes) return;
