@@ -5,7 +5,7 @@ export const contentEn = {
     "chime": "/sounds/blessings-sparkle.wav",
     "groups": [
         {
-            "heading": "BLESSED MEMORIES & MANGAL AASHISH",
+            "heading": "Blessed Memories & MANGAL AASHISH",
             "names": [
                 "Late Shri Ratanchandji Kevalchandji Bokadia"
             ],
@@ -32,9 +32,9 @@ export const contentEn = {
             "memorial": false
         },
         {
-            "heading": "CORDIALLY WELCOMING YOU",
+            "heading": "Cordially WELCOMING YOU",
             "names": [],
-            "paragraph": "Babulalji, Manikchandji, Dinesh, Bharat, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Akshay, Rishabh, Shaurya & the entire Bokadia Family",
+            "paragraph": "Babulalji, Manikchandji, Dinesh, Bharat, Nilesh, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Akshay, Rishabh, Shaurya & the entire Bokadia Family",
             "memorial": false
         },
         {
@@ -58,11 +58,12 @@ export const contentEn = {
             "memorial": false
         },
         {
-            "heading": "WITH WARM INVITATION & AFFECTION",
+            "heading": "WITH WARM INVITATION & Affection",
             "names": [
                 "Sau. Premlata Manikchandji Bokadia",
                 "Sau. Uma Dinesh Bokadia",
                 "Sau. Meena Bharat Bokadia",
+                "Sau. Leena Nilesh Bokadia",
                 "Sau. Charu Kushal Bokadia",
                 "Sau. Aarti Hitesh Bokadia",
                 "Sau. Avani Kalpesh Bokadia",
@@ -75,7 +76,7 @@ export const contentEn = {
         }
     ],
     "littleHearts": {
-        "heading": "A LITTLE INVITATION FROM LITTLE HEARTS",
+        "heading": "A Little Invitation from Little Hearts",
         "repeatInvitation": "Please do come, do come",
         "quotes": [
             {

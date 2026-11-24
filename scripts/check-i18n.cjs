@@ -52,7 +52,7 @@ assert.equal(contentEn.familyBlessings.groups.length,6);
 assert.equal(contentHi.familyBlessings.groups.length,6);
 assert.equal(contentEn.familyBlessings.groups[4].names.length,13);
 assert.equal(contentHi.familyBlessings.groups[4].names.length,13);
-assert.equal(contentEn.familyBlessings.groups[5].names.length,9);
+assert.equal(contentEn.familyBlessings.groups[5].names.length,10);
 assert.equal(contentHi.familyBlessings.groups[5].names.length,10);
 assert.equal(contentEn.familyBlessings.littleHearts.quotes.length,2);
 assert.equal(contentHi.familyBlessings.littleHearts.repeatInvitation,'ज़रूर-ज़रूर आना');
