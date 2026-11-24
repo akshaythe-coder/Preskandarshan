@@ -25,7 +25,7 @@ export const contentEn = {
         {
             "heading": "WITH THE LOVE & BLESSINGS OF BELOVED UNCLE & AUNT",
             "names": [
-                "Nilesh Ratanchandji Bokadia",
+                "Nilesh Late Ratanchandji Bokadia",
                 "Leena Nilesh Bokadia"
             ],
             "paragraph": "",
