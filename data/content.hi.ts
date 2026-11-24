@@ -104,7 +104,7 @@ export const contentHi: Content = {
     mapLink: "https://www.google.com/maps/search/?api=1&query=Kings+Aravali+Resort+Jasol+Rajasthan",
   },
   whatsappNumber: "", // Add the guests' contact number here, digits only, including country code.
-  music: "/music/married-life-instrumental.mp3",
+  music: "/music/tu-hai.mp3",
   tv: {
     image: "/photos/under-the-arch.webp",
     alt: "प्रेक्षा और दर्शन साथ-साथ",
