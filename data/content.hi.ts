@@ -84,7 +84,7 @@ export const contentHi: Content = {
         "repeatInvitation": "ज़रूर-ज़रूर आना",
         "quotes": [
             {
-                "text": "हमारी दीदी की शादी में {invitation}",
+                "text": "हमारी दीदी को उनके राजकुमार मिल गए—अब बस आप डांस फ़्लोर पर आ जाइए!",
                 "by": "जैनी, आरवी"
             },
             {
