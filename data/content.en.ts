@@ -79,7 +79,7 @@ export const contentEn = {
         "repeatInvitation": "Please do come, do come",
         "quotes": [
             {
-                "text": "Our Didi found her prince—now we just need you on the dance floor!",
+                "text": "Come celebrate our Didi’s special day with us.",
                 "by": "Jaini & Aarvi"
             },
             {
