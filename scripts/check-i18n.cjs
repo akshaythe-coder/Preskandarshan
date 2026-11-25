@@ -52,8 +52,8 @@ assert.equal(contentEn.familyBlessings.groups.length,10);
 assert.equal(contentHi.familyBlessings.groups.length,10);
 assert.equal(contentEn.familyBlessings.groups[6].names.length,13);
 assert.equal(contentHi.familyBlessings.groups[6].names.length,13);
-assert.equal(contentEn.familyBlessings.groups[7].names.length,8);
-assert.equal(contentHi.familyBlessings.groups[7].names.length,8);
+assert.equal(contentEn.familyBlessings.groups[7].names.length,6);
+assert.equal(contentHi.familyBlessings.groups[7].names.length,6);
 assert.equal(contentEn.familyBlessings.littleHearts.quotes.length,2);
 assert.equal(contentHi.familyBlessings.littleHearts.repeatInvitation,'ज़रूर-ज़रूर आना');
 console.log('PASS: all eleven blessing groups and intentionally different English/Hindi invitation lists.');
@@ -68,3 +68,6 @@ assert.equal(contentHi.familyBlessings.groups[9].heading,"मायरे की
 assert.equal(contentEn.familyBlessings.groups[4].heading,"Forever Connected Hearts");
 assert.equal(contentEn.familyBlessings.groups[4].names.length,4);
 assert.equal(contentHi.familyBlessings.groups[8].heading,"आदरणीय समधी प्रवर");
+
+assert.equal(contentEn.familyBlessings.groups[8].heading,"The Esteemed Samdhi Family");
+assert.equal(contentHi.familyBlessings.groups[4].heading,"दिल से जुड़े, हमेशा साथ");

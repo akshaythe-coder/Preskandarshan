@@ -54,7 +54,7 @@ export const contentEn = {
         {
             "heading": "Cordially WELCOMING YOU",
             "names": [],
-            "paragraph": "Babulalji, Manikchandji, Dinesh, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Akshay, Rishabh, Shaurya & the entire Bokadia Family",
+            "paragraph": "Babulalji, Manikchandji, Dinesh, Hitesh, Kushal, Kalpesh, Akshat, Shaurya & the entire Bokadia Family",
             "memorial": false
         },
         {
@@ -85,15 +85,13 @@ export const contentEn = {
                 "Sau. Charu Kushal Bokadia",
                 "Sau. Aarti Hitesh Bokadia",
                 "Sau. Avani Kalpesh Bokadia",
-                "Sau. Sejal Akshat Bokadia",
-                "Kum. Moksha Bharat Bokadia",
-                "Kum. Raina Nilesh Bokadia"
+                "Sau. Sejal Akshat Bokadia"
             ],
             "paragraph": "",
             "memorial": false
         },
         {
-            "heading": "Our Respected In-Laws",
+            "heading": "The Esteemed Samdhi Family",
             "names": [],
             "paragraph": "Shri Sha. Ghevarchandji, Manojkumarji, Dilipkumarji, Vikramkumarji, Dheerajkumarji Bagotra Solanki Family\n(Keshawana, Mumbai)",
             "memorial": false
