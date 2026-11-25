@@ -6,5 +6,3 @@
 .blessings-language{position:relative;z-index:2;display:flex;justify-content:center;margin:0 auto 32px}.family-blessings[lang=hi]{word-break:normal;hyphens:none}.family-blessings[lang=hi] :is(h2,p,li,q,span){letter-spacing:normal;text-transform:none}
 
 .blessings-keep-together{white-space:nowrap}
-
-@media(max-width:760px){.family-blessings[lang=en] .blessings-names li.blessings-mobile-fit{font-size:clamp(12px,3.8vw,17px);white-space:nowrap}}
