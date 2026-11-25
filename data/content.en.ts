@@ -15,7 +15,7 @@ export const contentEn = {
         {
             "heading": "UNDER THE BLESSINGS & LOVING GUIDANCE OF",
             "names": [
-                "Shrimati Mohinidevi Late Ratanchandji Bokadia",
+                "Shrimati Mohinidevi — Late Ratanchandji Bokadia",
                 "Sau. Pushpadevi Babulalji Bokadia",
                 "Sau. Mohinidevi Otmalji Choudhary"
             ],
@@ -52,7 +52,7 @@ export const contentEn = {
                 "Sau. Rohinidevi Mangilalji Choudhary",
                 "Sau. Vimaladevi Chothmalji Vinayakiya",
                 "Sau. Leeladevi Sohanlalji Tated",
-                "Shrimati Kamaladevi Late Shantilalji Doshimutha",
+                "Shrimati Kamaladevi — Late Shantilalji Doshimutha",
                 "Sau. Latadevi Ranmalji Balad",
                 "Sau. Kantadevi Prakashji Fofalia",
                 "Sau. Pinky Sachinji Shah",
