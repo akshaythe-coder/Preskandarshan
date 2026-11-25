@@ -85,6 +85,14 @@ export const contentHi: Content = {
             ],
             "paragraph": "",
             "memorial": false
+        },
+        {
+            "heading": "मायरा पक्ष",
+            "names": [
+                "श्रीमती लीलादेवी स्व. बाबूलालजी कवाड़"
+            ],
+            "paragraph": "दीपककुमार-सुरेखादेवी ,संजयकुमार-श्वेतादेवी , हिमानी,भव्य,नव्य एवं समस्त कवाड़ परिवार (मोकलसर, नंदुरबार)",
+            "memorial": false
         }
     ],
     "littleHearts": {

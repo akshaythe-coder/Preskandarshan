@@ -80,6 +80,14 @@ export const contentEn = {
             ],
             "paragraph": "",
             "memorial": false
+        },
+        {
+            "heading": "Mayra Side",
+            "names": [
+                "Smt. Leeladevi Late Babulalji Kawad"
+            ],
+            "paragraph": "Deepakkumar – Surekhadevi, Sanjaykumar – Shwetadevi, Himani, Bhavya, Navya, and the entire Kawad Family (Mokalsar, Nandurbar).",
+            "memorial": false
         }
     ],
     "littleHearts": {

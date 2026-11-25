@@ -48,16 +48,19 @@ for(const language of ['en','hi']) {
 }
 console.log('PASS: English/Hindi calendar titles, six events, unchanged IST times and UTF-8 line folding.');
 
-assert.equal(contentEn.familyBlessings.groups.length,7);
-assert.equal(contentHi.familyBlessings.groups.length,7);
+assert.equal(contentEn.familyBlessings.groups.length,8);
+assert.equal(contentHi.familyBlessings.groups.length,8);
 assert.equal(contentEn.familyBlessings.groups[5].names.length,13);
 assert.equal(contentHi.familyBlessings.groups[5].names.length,13);
 assert.equal(contentEn.familyBlessings.groups[6].names.length,8);
 assert.equal(contentHi.familyBlessings.groups[6].names.length,8);
 assert.equal(contentEn.familyBlessings.littleHearts.quotes.length,2);
 assert.equal(contentHi.familyBlessings.littleHearts.repeatInvitation,'ज़रूर-ज़रूर आना');
-console.log('PASS: all eight blessing groups and intentionally different English/Hindi invitation lists.');
+console.log('PASS: all nine blessing groups and intentionally different English/Hindi invitation lists.');
 
 assert.equal(contentEn.familyBlessings.groups[2].heading,"PROUD PARENTS AND HOST");
 assert.equal(contentEn.familyBlessings.groups[2].names.length,2);
 assert.equal(contentHi.familyBlessings.groups[2].names.length,2);
+
+assert.equal(contentEn.familyBlessings.groups[7].heading,"Mayra Side");
+assert.equal(contentHi.familyBlessings.groups[7].heading,"मायरा पक्ष");
