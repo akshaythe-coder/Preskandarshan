@@ -82,7 +82,7 @@ export const contentEn = {
             "memorial": false
         },
         {
-            "heading": "Mayra Side",
+            "heading": "The Splendour of Mayra, the Pride of Our Maternal Family",
             "names": [
                 "Smt. Leeladevi Late Babulalji Kawad"
             ],

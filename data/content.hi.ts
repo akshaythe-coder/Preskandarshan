@@ -87,7 +87,7 @@ export const contentHi: Content = {
             "memorial": false
         },
         {
-            "heading": "मायरा पक्ष",
+            "heading": "मायरे की शान-ननिहाल का मान",
             "names": [
                 "श्रीमती लीलादेवी स्व. बाबूलालजी कवाड़"
             ],

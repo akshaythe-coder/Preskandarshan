@@ -62,5 +62,5 @@ assert.equal(contentEn.familyBlessings.groups[2].heading,"PROUD PARENTS AND HOST
 assert.equal(contentEn.familyBlessings.groups[2].names.length,2);
 assert.equal(contentHi.familyBlessings.groups[2].names.length,2);
 
-assert.equal(contentEn.familyBlessings.groups[7].heading,"Mayra Side");
-assert.equal(contentHi.familyBlessings.groups[7].heading,"मायरा पक्ष");
+assert.equal(contentEn.familyBlessings.groups[7].heading,"The Splendour of Mayra, the Pride of Our Maternal Family");
+assert.equal(contentHi.familyBlessings.groups[7].heading,"मायरे की शान-ननिहाल का मान");
