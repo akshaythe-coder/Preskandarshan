@@ -86,7 +86,7 @@ export const contentEn = {
             "names": [
                 "Smt. Leeladevi Late Babulalji Kawad"
             ],
-            "paragraph": "Deepakkumar – Surekhadevi, Sanjaykumar – Shwetadevi, Himani, Bhavya, Navya, and the entire Kawad Family (Mokalsar, Nandurbar).",
+            "paragraph": "Deepakkumar – Surekhadevi, Sanjaykumar – Shwetadevi, Himani, Bhavya, Navya, and the entire Kawad Family\n(Mokalsar, Nandurbar).",
             "memorial": false
         }
     ],
