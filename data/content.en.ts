@@ -54,7 +54,7 @@ export const contentEn = {
         {
             "heading": "Cordially WELCOMING YOU",
             "names": [],
-            "paragraph": "Babulalji, Manikchandji, Dinesh, Hitesh, Kushal, Kalpesh, Akshat, Shaurya & the entire Bokadia Family",
+            "paragraph": "Babulalji, Manikchandji, Dinesh, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Shaurya & the entire Bokadia Family",
             "memorial": false
         },
         {
