@@ -28,6 +28,15 @@ export const contentHi: Content = {
             "memorial": false
         },
         {
+            "heading": "गौरवान्वित माता-पिता एवं मेज़बान",
+            "names": [
+                "भरत स्व. रतनचंदजी बोकड़िया",
+                "मीना भरत बोकड़िया"
+            ],
+            "paragraph": "",
+            "memorial": false
+        },
+        {
             "heading": "स्नेहमयी काका-काकी के आशीर्वाद सहित",
             "names": [
                 "नीलेश स्व. रतनचंदजी बोकड़िया",

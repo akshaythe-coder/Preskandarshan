@@ -23,6 +23,15 @@ export const contentEn = {
             "memorial": false
         },
         {
+            "heading": "PROUD PARENTS AND HOST",
+            "names": [
+                "Bharat Late Ratanchandji Bokadiya",
+                "Meena Bharat Bokadia"
+            ],
+            "paragraph": "",
+            "memorial": false
+        },
+        {
             "heading": "WITH THE LOVE & BLESSINGS OF BELOVED UNCLE & AUNT",
             "names": [
                 "Nilesh Late Ratanchandji Bokadia",
