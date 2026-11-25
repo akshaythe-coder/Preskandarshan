@@ -125,7 +125,7 @@ export const contentEn = {
     bride: {
       name: "Preksha",
       family: ["GD/O Shrimati Mohinidevi Late Ratanchandji Bokadiya", "D/O Meenadevi Bharatkumar Bokadiya"],
-      home: "Siwana · Pune",
+      home: "Gadh Siwana · Pune",
     },
     groom: {
       name: "Darshan",
@@ -216,7 +216,7 @@ export const messagesEn = {
   "Introducing the families": "Introducing the families",
   "GD/O Shrimati Mohinidevi Late Ratanchandji Bokadiya": "GD/O Shrimati Mohinidevi Late Ratanchandji Bokadiya",
   "D/O Meenadevi Bharatkumar Bokadiya": "D/O Meenadevi Bharatkumar Bokadiya",
-  "Siwana · Pune": "Siwana · Pune",
+  "Siwana · Pune": "Gadh Siwana · Pune",
   "GS/O Late Shushiladevi Champalalji Solanki": "GS/O Late Shushiladevi Champalalji Solanki",
   "S/O Krishnadevi Manojkumar Solanki": "S/O Krishnadevi Manojkumar Solanki",
   "Keshawana · Mumbai": "Keshawana · Mumbai",

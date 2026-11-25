@@ -130,7 +130,7 @@ export const contentHi: Content = {
     bride: {
       name: "प्रेक्षा",
       family: ["श्रीमती मोहिनीदेवी और स्वर्गीय रतनचंदजी बोकाड़िया की पौत्री", "मीनादेवी और भरतकुमार बोकाड़िया की सुपुत्री"],
-      home: "सिवाना · पुणे",
+      home: "गढ़ सिवाना · पुणे",
     },
     groom: {
       name: "दर्शन",
@@ -221,7 +221,7 @@ export const messagesHi: Messages = {
   "Introducing the families": "परिवारों से मिलिए",
   "GD/O Shrimati Mohinidevi Late Ratanchandji Bokadiya": "श्रीमती मोहिनीदेवी और स्वर्गीय रतनचंदजी बोकाड़िया की पौत्री",
   "D/O Meenadevi Bharatkumar Bokadiya": "मीनादेवी और भरतकुमार बोकाड़िया की सुपुत्री",
-  "Siwana · Pune": "सिवाना · पुणे",
+  "Siwana · Pune": "गढ़ सिवाना · पुणे",
   "GS/O Late Shushiladevi Champalalji Solanki": "स्वर्गीय सुशीलादेवी और चंपालालजी सोलंकी के पौत्र",
   "S/O Krishnadevi Manojkumar Solanki": "कृष्णादेवी और मनोजकुमार सोलंकी के सुपुत्र",
   "Keshawana · Mumbai": "केशवाना · मुंबई",
