@@ -41,6 +41,17 @@ export const contentEn = {
             "memorial": false
         },
         {
+            "heading": "Forever Connected Hearts",
+            "names": [
+                "Akshay Bharat Bokadia",
+                "Moksha Bharat Bokadia",
+                "Rishabh Nilesh Bokadia",
+                "Raina Nilesh Bokadia"
+            ],
+            "paragraph": "",
+            "memorial": false
+        },
+        {
             "heading": "Cordially WELCOMING YOU",
             "names": [],
             "paragraph": "Babulalji, Manikchandji, Dinesh, Hitesh, Kushal, Kalpesh, Akshat, Rishabh, Akshay, Rishabh, Shaurya & the entire Bokadia Family",
@@ -79,6 +90,12 @@ export const contentEn = {
                 "Kum. Raina Nilesh Bokadia"
             ],
             "paragraph": "",
+            "memorial": false
+        },
+        {
+            "heading": "Our Respected In-Laws",
+            "names": [],
+            "paragraph": "Shri Sha. Ghevarchandji, Manojkumarji, Dilipkumarji, Vikramkumarji, Dheerajkumarji Bagotra Solanki Family\n(Keshawana, Mumbai)",
             "memorial": false
         },
         {

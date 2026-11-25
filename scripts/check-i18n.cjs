@@ -48,19 +48,23 @@ for(const language of ['en','hi']) {
 }
 console.log('PASS: English/Hindi calendar titles, six events, unchanged IST times and UTF-8 line folding.');
 
-assert.equal(contentEn.familyBlessings.groups.length,8);
-assert.equal(contentHi.familyBlessings.groups.length,8);
-assert.equal(contentEn.familyBlessings.groups[5].names.length,13);
-assert.equal(contentHi.familyBlessings.groups[5].names.length,13);
-assert.equal(contentEn.familyBlessings.groups[6].names.length,8);
-assert.equal(contentHi.familyBlessings.groups[6].names.length,8);
+assert.equal(contentEn.familyBlessings.groups.length,10);
+assert.equal(contentHi.familyBlessings.groups.length,10);
+assert.equal(contentEn.familyBlessings.groups[6].names.length,13);
+assert.equal(contentHi.familyBlessings.groups[6].names.length,13);
+assert.equal(contentEn.familyBlessings.groups[7].names.length,8);
+assert.equal(contentHi.familyBlessings.groups[7].names.length,8);
 assert.equal(contentEn.familyBlessings.littleHearts.quotes.length,2);
 assert.equal(contentHi.familyBlessings.littleHearts.repeatInvitation,'ज़रूर-ज़रूर आना');
-console.log('PASS: all nine blessing groups and intentionally different English/Hindi invitation lists.');
+console.log('PASS: all eleven blessing groups and intentionally different English/Hindi invitation lists.');
 
 assert.equal(contentEn.familyBlessings.groups[2].heading,"PROUD PARENTS AND HOST");
 assert.equal(contentEn.familyBlessings.groups[2].names.length,2);
 assert.equal(contentHi.familyBlessings.groups[2].names.length,2);
 
-assert.equal(contentEn.familyBlessings.groups[7].heading,"The Splendour of Mayra, the Pride of Our Maternal Family");
-assert.equal(contentHi.familyBlessings.groups[7].heading,"मायरे की शान-ननिहाल का मान");
+assert.equal(contentEn.familyBlessings.groups[9].heading,"The Splendour of Mayra, the Pride of Our Maternal Family");
+assert.equal(contentHi.familyBlessings.groups[9].heading,"मायरे की शान-ननिहाल का मान");
+
+assert.equal(contentEn.familyBlessings.groups[4].heading,"Forever Connected Hearts");
+assert.equal(contentEn.familyBlessings.groups[4].names.length,4);
+assert.equal(contentHi.familyBlessings.groups[8].heading,"आदरणीय समधी प्रवर");
