@@ -42,6 +42,6 @@ The page metadata uses [`public/og.png`](public/og.png) for the social preview. 
 
 ## Family Blessings language switch
 
-The website and its metadata always use English. Only the second-last Family Blessings section has an English / हिंदी switch. Its selection is stored under `wedding-family-language`; old site-wide `?lang` links no longer change the site language. Names and translations remain editable in `data/content.en.ts` and `data/content.hi.ts`. Run `npm run test:i18n` to check translation keys and data. Hindi fonts are loaded only for the section or on toggle hover/focus.
+The website and its metadata always use English. Only the second-last Family Blessings section has an English / हिंदी switch. Hindi is the default for that section. Its selection is stored under `wedding-family-language-v2`; old site-wide `?lang` links no longer change the site language. Names and translations remain editable in `data/content.en.ts` and `data/content.hi.ts`. Run `npm run test:i18n` to check translation keys and data. Hindi fonts are loaded only for the section or on toggle hover/focus.
 
 Family blessings: add or remove names in `familyBlessings.groups[].names` in both locale content files; names wrap automatically. The supplied English and Hindi lists intentionally differ. Edit `familyBlessings.littleHearts.repeatInvitation` to change the repeated children’s invitation wording in one place.

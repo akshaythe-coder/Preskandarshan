@@ -46,7 +46,7 @@ export function LittleHeartsCards({ muted }: { muted: boolean }) {
   </motion.button>)}</div>;
 }
 export default function FamilyBlessings({ muted }: { muted: boolean }) {
-  return <I18nProvider scope="family"><FamilyBlessingsContent muted={muted} /></I18nProvider>;
+  return <I18nProvider scope="family" initialLanguage="hi"><FamilyBlessingsContent muted={muted} /></I18nProvider>;
 }
 function FamilyBlessingsContent({ muted }: { muted: boolean }) {
   const { content, language } = useT(); const reduced = useReducedMotion(); const section = useRef<HTMLElement>(null); const id = useId();

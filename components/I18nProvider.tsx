@@ -11,7 +11,7 @@ export function I18nProvider({ children, initialLanguage = "en", scope = "site" 
   const setLanguage = useCallback((next: Language) => {
     if (scope !== "family") return;
     scrollPosition.current = {x:scrollX,y:scrollY}; update(next);
-    try { localStorage.setItem("wedding-family-language",next); } catch {}
+    try { localStorage.setItem("wedding-family-language-v2",next); } catch {}
   },[scope]);
   useLayoutEffect(() => {
     if (scope === "site") document.documentElement.lang = "en";
@@ -19,7 +19,7 @@ export function I18nProvider({ children, initialLanguage = "en", scope = "site" 
     if(position){window.scrollTo({left:position.x,top:position.y,behavior:"instant"});scrollPosition.current=null;}
   },[language,scope]);
   useEffect(() => {
-    if(scope === "family") { try { if(localStorage.getItem("wedding-family-language")==="hi") update("hi"); } catch {} }
+    if(scope === "family") { try { const saved = localStorage.getItem("wedding-family-language-v2"); if(saved === "hi" || saved === "en") update(saved); } catch {} }
     else { const url=new URL(location.href); if(url.searchParams.has("lang")){url.searchParams.delete("lang");history.replaceState(history.state,"",url);} }
   },[scope]);
   useEffect(() => {
